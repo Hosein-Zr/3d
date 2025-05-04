@@ -1,13 +1,14 @@
 "use client";
 import Landing from "@/components/app/HomePage/Landing";
 import LetsGoButton from "@/components/app/HomePage/LetsGoButton";
-import { ForestHouseModel } from "@/components/shared/3d/ForestHouse/ForestHouseModel";
+// import { ForestHouseModel } from "@/components/shared/3d/ForestHouse/ForestHouseModel";
 import { CameraControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { useAnimationStore } from "../../store/zustandStore";
 import AudioPlayer from "@/components/shared/AutoAudioPlayer/AutoAudioPlayer";
 import { ModernGalleryV2Large } from "@/components/shared/3d/ModerGalleryV2Large/ModernGalleryV2Large";
-
+import { createXRStore, XR } from "@react-three/xr";
+const store = createXRStore();
 export default function Home() {
   const { isLetsGoButtonVisible } = useAnimationStore();
   return (
@@ -25,7 +26,10 @@ export default function Home() {
           />
           <CameraControls makeDefault />
           {/* <ForestHouseModel /> */}
-          <ModernGalleryV2Large />
+
+          <XR store={store}>
+            <ModernGalleryV2Large />
+          </XR>
         </Canvas>
       </div>
     </div>

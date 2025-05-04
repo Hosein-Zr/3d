@@ -7,8 +7,9 @@ Source: https://sketchfab.com/3d-models/richards-art-gallery-audio-tour-0e3e19fa
 Title: Richard's Art Gallery - Audio Tour
 */
 
-import React from 'react'
-import { useGLTF } from '@react-three/drei'
+import React from "react";
+import { useGLTF } from "@react-three/drei";
+import { RigidBody } from "@react-three/rapier";
 
 export function ModernGalleryV2Large(props) {
   const group = React.useRef();
@@ -1911,17 +1912,17 @@ export function ModernGalleryV2Large(props) {
                     material={materials.plant}
                   />
                 </group>
-                <group
-                  name="Box019"
-                  position={[-7183.831, 2698.034, -32.939]}
-                  rotation={[-Math.PI / 2, 0, 0]}
-                >
-                  <mesh
-                    name="Box019_Material_#4040_0"
-                    geometry={nodes["Box019_Material_#4040_0"].geometry}
-                    material={materials.Material_4040}
-                  />
-                </group>
+                  <group
+                    name="Box019"
+                    position={[-7183.831, 2698.034, -32.939]}
+                    rotation={[-Math.PI / 2, 0, 0]}
+                  >
+                    <mesh
+                      name="Box019_Material_#4040_0"
+                      geometry={nodes["Box019_Material_#4040_0"].geometry}
+                      material={materials.Material_4040}
+                    />
+                  </group>
                 <group
                   name="spotlights"
                   position={[43.372, 2092.11, 553.915]}
@@ -2023,11 +2024,13 @@ export function ModernGalleryV2Large(props) {
                   position={[-7230.851, 0, 11196.582]}
                   rotation={[-Math.PI / 2, 0, 0]}
                 >
-                  <mesh
-                    name="Building_B_Material_#3993_0"
-                    geometry={nodes["Building_B_Material_#3993_0"].geometry}
-                    material={materials.Material_3993}
-                  />
+                  {/* <RigidBody type="fixed" colliders="trimesh"> */}
+                    <mesh
+                      name="Building_B_Material_#3993_0"
+                      geometry={nodes["Building_B_Material_#3993_0"].geometry}
+                      material={materials.Material_3993}
+                    />
+                  {/* </RigidBody> */}
                 </group>
                 <group
                   name="curtain001"
@@ -2482,4 +2485,3 @@ export function ModernGalleryV2Large(props) {
   );
 }
 useGLTF.preload(new URL("./modernGalleryV2Large.glb", import.meta.url).href);
-

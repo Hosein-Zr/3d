@@ -5,7 +5,7 @@ const AudioPlayer = () => {
   useEffect(() => {
     setTrackIndex("/music/1.mp3");
     console.log(trackIndex);
-  }, []);
+  }, [trackIndex]);
 
   return <audio src={trackIndex} autoPlay hidden />;
 };

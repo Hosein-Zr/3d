@@ -7,5 +7,5 @@ interface IAnimationStore {
 
 export const useAnimationStore = create<IAnimationStore>((set) => ({
   isLetsGoButtonVisible: false,
-  setIsLetsGoButtonVisible: () => set({ isLetsGoButtonVisible: true }), // Corrected the function
+  setIsLetsGoButtonVisible: () => set({ isLetsGoButtonVisible: true }),
 }));

@@ -2,7 +2,7 @@
 import { Canvas } from "@react-three/fiber";
 import { ModernGalleryV2Large } from "@/components/shared/3d/ModerGalleryV2Large/ModernGalleryV2Large";
 import AudioPlayer from "@/components/shared/AutoAudioPlayer/AutoAudioPlayer";
-import { KeyboardCameraController } from "@/components/shared/3d/KeyboardCameraController";
+import { ClientCameraController } from "@/components/shared/3d/KeyboardCameraController";
 
 export default function Home() {
   return (
@@ -15,7 +15,7 @@ export default function Home() {
             color={"red"}
             position={[-100, 200, 100]}
           />
-          <KeyboardCameraController />
+          <ClientCameraController />
           <ModernGalleryV2Large />
         </Canvas>
       </div>
